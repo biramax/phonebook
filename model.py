@@ -12,4 +12,6 @@ def add_contact(data):
     data.writelines(surname)
 
 def find():
+    a = 'cool text'
+    print ('text' in a) 
     return None
