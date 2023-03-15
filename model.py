@@ -1,25 +1,25 @@
 def read_phonebook():
-    # with open('file_name.txt', 'r', encoding='utf-8') as file:
-    #     pass
-    myfile = open("file_name.txt", "r")
-    return myfile.read()
+    with open('file_name.txt', 'r', encoding='utf-8') as file:
+        return file.read()
+
 
 def add_contact(cont):
     data = open('file_name.txt', 'a')
-    data.writelines(cont['family'])
-    data.writelines(' ')
-    data.writelines(cont['name'])
-    data.writelines(' ')
-    data.writelines(cont['phone'])
-    data.writelines('\n')
+    data.write(cont['family']+' '+cont['name']+' '+cont['phone']+'\n')
 
 def find(text):
     with open('file_name.txt', 'r', encoding='utf-8') as file:
-        resultat = []
+        res_list = []
+        for line in file:
+            if text in line:
+                res_list.append(line)
+        return res_list
+    
 
 
 # print(read_phonebook())
-# data = {'family': 'Qwerty', 'name': 'ytrewq', 'phone':'phone'}
+# data = {'family': 'QweSDArty', 'name': 'ytreDfFDwq', 'phone':'phone'}
 # add_contact(data)
 # data1 = data['name'], data['surname']
 # print(data1)
+# print(find('Cccc'))
