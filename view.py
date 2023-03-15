@@ -1,15 +1,33 @@
+
 def greetings():
-    print('Здравствуйте, уважаемый пользователь!')
-
+    print("\nДобро пожаловать в программу!\n")
+    print("*ТЕЛЕФОННАЯ КНИГА*\n")
+    
 def menu():
-    print('Введите 1, если хотите ввести данные нового абонента')
-    command = int(input('Ведите вашу команду: '))
-    return int(input('Ведите вашу команду: '))
-def show_contact_form():
-    family = print('Введите фамилию: ')
-    name = print('Введите имя: ')
-    phone = print('Введите номер телефона: ')
-    return {'family': family, 'name': name, 'phone': phone}
+    print("---МЕНЮ---\n")
+    print("1. Добавление нового пользователя")
+    print("2. Считыание данных из телефонной книги")
+    print("3. Поиск")
+    print("4. Изменение данных")
+    print("5. Удаление данных")
+    print("6. Выход\n")
+    command = input('Выберите пункт МЕНЮ: ')
+    return command
 
-def show_phonebook(date):
-    return None
+def show_contact_form():
+    family = input('Введите фамилию: ').capitalize()
+    name = input('Введите имя: ').capitalize()
+    phone = input('Введите номер телефона: ')
+    contact = {'family': family, 'name': name, 'phone': phone}
+    return contact
+
+def show_phonebook(book):
+    for i in book:
+        print(i)
+
+def show_message(message):
+    print(message)
+
+def get_search_query():
+    search_name = input("Введите полностью или часть фамилии, имени или телефона: ").capitalize()
+    return search_name
