@@ -22,7 +22,7 @@ def find_first(text): # Находит по запросу первый конт
     with open('file_name.txt', 'r', encoding='utf-8') as file:
         for line in file:
             if text in line:
-                return list(line)
+                return [line]
         return []
 
 
