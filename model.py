@@ -39,7 +39,7 @@ def find_and_change(old_text, new_text): # Удаление старый и до
                 with open("file_name.txt", "w", encoding='utf-8') as file:
                     file.writelines(lines)
                 data = open('file_name.txt', 'a', encoding='utf-8')
-                data.write(new_text['family']+' '+new_text['name']+' '+new_text['phone']+'\n')
+                data.write(new_text['family']+' '+new_text['name']+' '+new_text['phone'])
                 return old_text, new_text
             else:
                 count += 1

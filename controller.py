@@ -11,7 +11,7 @@ def run():
         # Добавление нового пользователя:
         # view предлагает пользователю заполнить в отдельных полях фамилию, имя и телефон и возвращает словарь {'family': фамилия, 'name': имя, 'phone': телефон}
         # в model передаётся этот словарь, записывается новая строка в файл phonebook.txt: фамилия,имя,телефон
-        if command == 1:
+        if command == '1':
             data = view.show_contact_form()
             model.add_contact(data)
 
@@ -27,7 +27,7 @@ def run():
         #   ...
         # ]
         # view этот список пропускает через цикл и выдаёт в консоль
-        if command == 2:
+        if command == '2':
             data = model.read_phonebook()
             view.show_phonebook(data)
 
@@ -35,7 +35,7 @@ def run():
         # view запрашивает у пользователя поисковую фразу и возвращает в виде строки
         # model производит поиск подстроки по каждой строке файла и возвращает список, как в предыдущем пункте.
         # во view для вывода списка мы воспользуемся функцией из предыдущего пункта show_phonebook
-        if command == 3:
+        if command == '3':
             search = view.get_search_query()
             data = model.find(search)
             if len(data) == 0:
@@ -53,7 +53,7 @@ def run():
         # model создаёт ф-ю find_and_change, в которую передаётся: 
         #   - search, это та же строка поиска, что и раньше, чтобы снова можно было найти первого подходящего пользователя, чтобы заменить его на новые данные
         #   - data - новые данные пользователя
-        if command == 4:
+        if command == '4':
             view.show_message('Введите поисковую фразу')
             search = view.get_search_query()
             data = model.find_first(search)
@@ -69,7 +69,7 @@ def run():
         # Удаление данных:
         # во view изспользуем функцию из предыдущего пункта get_search_query, возвращается строка с поисковой фразой
         # model производит поиск подстроки, и удаляет первого подходящего пользователя, возвращает True, если пользователь найден, False - если не найден
-        if command == 5:
+        if command == '5':
             view.show_message('Введите поисковую фразу')
             search = view.get_search_query()
             found = model.find_and_del_first(search)
