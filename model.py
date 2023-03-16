@@ -1,7 +1,9 @@
 def read_phonebook():# Вывод телефоной книги
     with open('file_name.txt', 'r', encoding='utf-8') as file:
-        return file.read()
-
+        res_list = []
+        for line in file:
+            res_list.append(line)
+        return res_list
 
 def add_contact(cont):# Добавление контакта
     data = open('file_name.txt', 'a', encoding='utf-8')
@@ -18,10 +20,11 @@ def find(text): # Поиск контакта по ключевому слову
 
 def find_first(text): # Находит по запросу первый контакт
     with open('file_name.txt', 'r', encoding='utf-8') as file:
+        res_list = []
         for line in file:
             if text in line:
-                return list(line)
-        return []
+                return line
+        return res_list
 
 
 def find_and_change(old_text, new_text): # Удаление старый и добавление новых
@@ -29,21 +32,21 @@ def find_and_change(old_text, new_text): # Удаление старый и до
         count = 0
         for line in file:
             if old_text in line:
-                with open("file_name.txt", "r") as file:
+                with open("file_name.txt", "r", encoding='utf-8') as file:
                     lines = file.readlines()
                 del lines[count]
                 
-                with open("file_name.txt", "w") as file:
+                with open("file_name.txt", "w", encoding='utf-8') as file:
                     file.writelines(lines)
                 data = open('file_name.txt', 'a', encoding='utf-8')
                 data.write(new_text['family']+' '+new_text['name']+' '+new_text['phone']+'\n')
-                break
+                return old_text, new_text
             else:
                 count += 1
-
+        return False
 
     
-def find_and_del_firs(text): # Удаляет первый найденный контакт
+def find_and_del_first(text): # Удаляет первый найденный контакт
     with open('file_name.txt', 'r', encoding='utf-8') as file:
         count = 0
         for line in file:
@@ -59,4 +62,3 @@ def find_and_del_firs(text): # Удаляет первый найденный к
                 count += 1
         
         return False
-    
