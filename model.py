@@ -18,11 +18,10 @@ def find(text): # Поиск контакта по ключевому слову
 
 def find_first(text): # Находит по запросу первый контакт
     with open('file_name.txt', 'r', encoding='utf-8') as file:
-        res_list = []
         for line in file:
             if text in line:
-                return line
-        return res_list
+                return list(line)
+        return []
 
 
 def find_and_change(old_text, new_text): # Удаление старый и добавление новых
