@@ -11,7 +11,7 @@ def menu():
     print("4. Изменение данных")
     print("5. Удаление данных")
     print("6. Выход\n")
-    command = input('Выберите пункт МЕНЮ: ')
+    command = int(input('Выберите пункт МЕНЮ: '))
     return command
 
 def show_contact_form():
