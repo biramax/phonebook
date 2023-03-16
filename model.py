@@ -14,7 +14,7 @@ def find(text): # Поиск контакта по ключевому слову
         res_list = []
         for line in file:
             if text in line:
-                res_list.append(line)
+                res_list.append(line[:-1])
         return res_list
 
 
@@ -22,7 +22,7 @@ def find_first(text): # Находит по запросу первый конт
     with open('file_name.txt', 'r', encoding='utf-8') as file:
         for line in file:
             if text in line:
-                return [line]
+                return [line[:-1]]
         return []
 
 
@@ -47,11 +47,11 @@ def find_and_del_first(text): # Удаляет первый найденный �
         count = 0
         for line in file:
             if text in line:
-                with open("file_name.txt", "r") as file:
+                with open("file_name.txt", "r", encoding='utf-8') as file:
                     lines = file.readlines()
                 del lines[count]
                 
-                with open("file_name.txt", "w") as file:
+                with open("file_name.txt", "w", encoding='utf-8') as file:
                     file.writelines(lines)
                 return True
             else:
